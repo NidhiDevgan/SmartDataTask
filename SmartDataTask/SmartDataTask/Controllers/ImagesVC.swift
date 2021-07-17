@@ -39,7 +39,6 @@ extension ImagesVC : UICollectionViewDelegate, UICollectionViewDataSource {
         
         
         let imageUrl = URL(string: self.imagesArray[indexPath.item])!
-      //  DispatchQueue.global().async { [weak self] in
             if let data = try? Data(contentsOf: imageUrl) {
                 if let image = UIImage(data: data) {
                     DispatchQueue.main.async {
@@ -48,7 +47,6 @@ extension ImagesVC : UICollectionViewDelegate, UICollectionViewDataSource {
                     }
                 }
             }
-      //  }
         
         cell.cancelBtn.tag = indexPath.row
         cell.cancelBtn.addTarget(self, action:#selector(cancelButtonClick(sender:)), for: .touchUpInside)
